@@ -8,7 +8,8 @@ class Texture:
         self.app = app
         self.ctx = app.ctx
         self.textures = {}
-        self.textures[0] = self.get_texture(path='textures/img_2.png')
+        self.textures[0] = self.get_texture(path='textures/asphalt.jpg')
+        self.textures[1] = self.get_texture(path='textures/bycicle_path.jpg')
 
     def get_texture(self, path):
         texture = pg.image.load(path).convert()

@@ -10,9 +10,19 @@ class VAO:
         self.vaos = {}
 
         # cube vao
-        self.vaos['cube'] = self.get_vao(
+        self.vaos['street_cube'] = self.get_vao(
             program=self.program.programs['default'],
-            vbo = self.vbo.vbos['cube'])
+            vbo = self.vbo.vbos['street_cube'])
+        
+        # bycicle_path vao
+        self.vaos['bycicle_path_cube'] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo = self.vbo.vbos['bycicle_path_cube'])
+        
+        self.vaos['building_rectangle'] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo = self.vbo.vbos['building_rectangle']
+        )
 
     def get_vao(self, program, vbo):
         vao = self.ctx.vertex_array(program, [(vbo.vbo, vbo.format, *vbo.attribs)], skip_errors=True)
