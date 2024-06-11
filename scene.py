@@ -33,6 +33,16 @@ class Scene:
         building_pos_y = -s + building_height / 2
         add(BuildingRectangle(app, pos=(-s, building_pos_y, 3+s), scale=(1, 1, 1)))
 
+        # Add shopping center
+        building_height = 8  # Altura do paralelepípedo
+        building_pos_y = -s + 4
+        building_length = 3
+        building_width = 20
+        building_pos_x = n_horizontal * s + building_width / 2
+
+        add(ShoppingCenterRectangle(app, pos=(building_pos_x-6, building_pos_y-1, building_length+6), scale=(1, 1, 1), rot=(0, 90, 0)))
+
+
     def destroy(self):
         for obj in self.objects:
             obj.destroy()

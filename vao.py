@@ -24,6 +24,11 @@ class VAO:
             vbo = self.vbo.vbos['building_rectangle']
         )
 
+        self.vaos['shopping_rectangle'] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo = self.vbo.vbos['shopping_rectangle']
+        )
+
     def get_vao(self, program, vbo):
         vao = self.ctx.vertex_array(program, [(vbo.vbo, vbo.format, *vbo.attribs)], skip_errors=True)
         return vao
