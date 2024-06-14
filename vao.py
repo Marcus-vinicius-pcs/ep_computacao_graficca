@@ -24,9 +24,19 @@ class VAO:
             vbo = self.vbo.vbos['building_rectangle']
         )
 
+        self.vaos['building_2_rectangle'] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo = self.vbo.vbos['building_2_rectangle']
+        )
+
         self.vaos['shopping_rectangle'] = self.get_vao(
             program=self.program.programs['default'],
             vbo = self.vbo.vbos['shopping_rectangle']
+        )
+
+        self.vaos['store_rectangle'] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo = self.vbo.vbos['store_rectangle']
         )
 
     def get_vao(self, program, vbo):
