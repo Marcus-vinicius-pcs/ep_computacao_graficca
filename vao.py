@@ -24,6 +24,16 @@ class VAO:
             vbo = self.vbo.vbos['building_rectangle']
         )
 
+        self.vaos['building_FIESP'] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo = self.vbo.vbos['building_FIESP']
+        )
+
+        self.vaos['building_FIESPbody'] = self.get_vao(
+            program=self.program.programs['default'],
+            vbo = self.vbo.vbos['building_FIESPbody']
+        )
+
         self.vaos['building_2_rectangle'] = self.get_vao(
             program=self.program.programs['default'],
             vbo = self.vbo.vbos['building_2_rectangle']
