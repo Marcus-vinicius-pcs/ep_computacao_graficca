@@ -325,8 +325,8 @@ class BuildingFIESPbodyVBO(BaseVBO):
 
     def get_vertex_data(self):
         # Vértices ajustados para um paralelepípedo retangular com altura 8 e largura 3
-        vertices = [(-2, -4, 3), ( 2, -4, 3), ( 2,  6, 3), (-2,  6, 3),
-                    (-2,  6, -3), (-2, -4, -3), ( 2, -4, -3), ( 2,  6, -3)]
+        vertices = [(-2, -6, 3), ( 2, -6, 3), ( 2,  8, 3), (-2,  8, 3),
+                    (-2,  8, -3), (-2, -6, -3), ( 2, -6, -3), ( 2,  8, -3)]
 
         indices = [(0, 2, 3), (0, 1, 2),
                    (1, 7, 2), (1, 6, 7),

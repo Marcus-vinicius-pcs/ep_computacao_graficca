@@ -10,6 +10,15 @@ class Texture:
         self.textures = {}
         self.textures[0] = self.get_texture(path='textures/asphalt.jpg')
         self.textures[1] = self.get_texture(path='textures/bycicle_path.jpg')
+        self.textures[2] = self.get_texture(path='textures/glass_building.jpg')
+        self.textures[3] = self.get_texture(path='textures/office_building.jpg')
+        self.textures[4] = self.get_texture(path='textures/building_1.jpg')
+        self.textures[5] = self.get_texture(path='textures/building_2.jpg')
+        self.textures[6] = self.get_texture(path='textures/building_3.jpg')
+        self.textures[7] = self.get_texture(path='textures/building_4.jpg')
+        self.textures[8] = self.get_texture(path='textures/store_1.jpg')
+        self.textures[9] = self.get_texture(path='textures/store_2.jpg')
+        self.textures[10] = self.get_texture(path='textures/shopping.jpg')
 
     def get_texture(self, path):
         texture = pg.image.load(path).convert()
