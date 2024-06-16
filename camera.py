@@ -41,12 +41,15 @@ class Camera:
         self.up = glm.normalize(glm.cross(self.right, self.forward))
 
     def update(self):
+        print(self.position)
+        self.position = glm.vec3(4.23453,-0.44772,-4.36875 )
         self.move()
         self.rotate()
         self.update_camera_vectors()
         self.m_view = self.get_view_matrix()
 
     def move(self):
+        
         velocity = SPEED * self.app.delta_time
         keys = pg.key.get_pressed()
         if keys[pg.K_w]:

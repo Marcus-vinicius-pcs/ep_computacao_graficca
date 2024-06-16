@@ -1,6 +1,7 @@
 import pygame as pg
 import moderngl as mgl
 import sys
+import math
 from model import *
 from camera import Camera
 from light import Light
@@ -10,7 +11,9 @@ from scene import Scene
 
 
 class GraphicsEngine:
+    """Controlador Principal"""
     def __init__(self, win_size=(800, 800)):
+        """Parametrização Inicial"""
         # init pygame modules
         pg.init()
         # window size
@@ -61,7 +64,27 @@ class GraphicsEngine:
         self.time = pg.time.get_ticks() * 0.001
 
     def run(self):
+        """Execução Principal"""
         while True:
+            # Define as funções de atualização da posição da fonte de luz
+            light_pos = self.light.get_position()
+            color_pos = self.light.get_color()
+
+            center = (0, 0, 0)
+
+            new_x = center[0] + 100 * math.cos(math.atan2(light_pos[1] - center[1], light_pos[0] - center[0]) + math.radians(.5))
+            new_y = center[1] + 100 * math.sin(math.atan2(light_pos[1] - center[1], light_pos[0] - center[0]) + math.radians(.5))
+
+            # print(math.atan2(light_pos[1] - center[1], light_pos[0] - center[0]) + math.radians(1))
+            if math.atan2(light_pos[1] - center[1], light_pos[0] - center[0]) + math.radians(1) < 0:
+                a = 200
+                color = (250 /a, 214/a, 165/a)
+            else:
+                color = (color_pos[2], color_pos[2], color_pos[2])
+
+            self.light = Light(position=(new_x, new_y, light_pos[2]), color=color)
+
+            self.scene = Scene(self)
             self.get_time()
             self.check_events()
             self.camera.update()
@@ -72,32 +95,3 @@ class GraphicsEngine:
 if __name__ == '__main__':
     app = GraphicsEngine()
     app.run()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,6 +1,5 @@
 import glm
 
-
 class Light:
     def __init__(self, position=(50, 50, -10), color=(1, 1, 1), direction=(0, 0, 0)):
         self.position = glm.vec3(position)
@@ -15,3 +14,19 @@ class Light:
 
     def get_view_matrix(self):
         return glm.lookAt(self.position, self.direction, glm.vec3(0, 1, 0))
+    
+    
+    def get_color(self):
+        return self.color
+    
+
+    def get_position(self):
+        return self.position
+    
+
+    def update_light_position(self, position):
+        self.positon = glm.vec3(position)
+
+
+    def update_light_color(self, color):
+        self.color = glm.vec3(color)
