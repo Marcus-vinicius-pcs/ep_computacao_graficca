@@ -25,9 +25,11 @@ class Camera:
 
     def rotate(self):
         rel_x, rel_y = pg.mouse.get_rel()
-        self.yaw += rel_x * SENSITIVITY
-        self.pitch -= rel_y * SENSITIVITY
-        self.pitch = max(-89, min(89, self.pitch))
+        # self.yaw += rel_x * SENSITIVITY
+        # self.pitch -= rel_y * SENSITIVITY
+        # self.pitch = max(-89, min(89, self.pitch))
+        self.yaw = 91.63999999999989
+        self.pitch = 1.4000000000000008
 
     def update_camera_vectors(self):
         yaw, pitch = glm.radians(self.yaw), glm.radians(self.pitch)
@@ -41,15 +43,17 @@ class Camera:
         self.up = glm.normalize(glm.cross(self.right, self.forward))
 
     def update(self):
-        print(self.position)
-        self.position = glm.vec3(4.23453,-0.44772,-4.36875 )
+        #print(self.position)
+        self.position = glm.vec3(4.16832, 1.08734, -8.22933)
+        print(self.pitch, self.yaw)
         self.move()
         self.rotate()
         self.update_camera_vectors()
         self.m_view = self.get_view_matrix()
 
     def move(self):
-        
+        # velocity = SPEED * self.app.delta_time
+        # keys = pg.key.get_pressed()
         velocity = SPEED * self.app.delta_time
         keys = pg.key.get_pressed()
         if keys[pg.K_w]:
