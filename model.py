@@ -2,7 +2,7 @@ import moderngl as mgl
 import numpy as np
 import glm
 
-
+# Código feito com base no tutorial do vídeo referenciado no relatório
 class BaseModel:
     def __init__(self, app, vao_name, tex_id, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         self.app = app
@@ -18,6 +18,7 @@ class BaseModel:
     def update(self): ...
 
     def get_model_matrix(self):
+        # obtém a matriz de vértices do modelo
         m_model = glm.mat4()
         m_model = glm.translate(m_model, self.pos)
 
@@ -32,12 +33,13 @@ class BaseModel:
         self.update()
         self.vao.render()
 
-
+# Classe para a criação do asfalto
 class StreetCube(BaseModel):
     def __init__(self, app, vao_name='street_cube', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
         self.on_init()
 
+    # atualiza posição da câmera
     def update(self):
         self.texture.use()
         self.program['camPos'].write(self.camera.position)
@@ -63,6 +65,7 @@ class StreetCube(BaseModel):
         self.texture.release()
         self.vao.release()
 
+# Classe para a ciclovia
 class ByciclePathCube(BaseModel):
     def __init__(self, app, vao_name='bycicle_path_cube', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
@@ -93,7 +96,7 @@ class ByciclePathCube(BaseModel):
         self.texture.release()
         self.vao.release()
 
-
+# Classe para a criação de um prédio
 class BuildingRectangle(BaseModel):
     def __init__(self, app, vao_name='building_rectangle', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
@@ -124,7 +127,7 @@ class BuildingRectangle(BaseModel):
         self.texture.release()
         self.vao.release()
 
-
+# Classe para a criação de um prédio
 class Building2Rectangle(BaseModel):
     def __init__(self, app, vao_name='building_2_rectangle', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
@@ -155,7 +158,7 @@ class Building2Rectangle(BaseModel):
         self.texture.release()
         self.vao.release()
 
-
+# Classe para a criação de uma loja
 class StoreRectangle(BaseModel):
     def __init__(self, app, vao_name='store_rectangle', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
@@ -187,7 +190,7 @@ class StoreRectangle(BaseModel):
         self.vao.release()
 
 
-
+# Classe para a criação do suposto prédio da FIESP
 class BuildingFIESP(BaseModel):
     def __init__(self, app, vao_name='building_FIESP', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
@@ -218,6 +221,7 @@ class BuildingFIESP(BaseModel):
         self.texture.release()
         self.vao.release()
 
+# Classe para a criação do "nariz" do suposto prédio da FIESP
 class BuildingFIESPbody(BaseModel):
     def __init__(self, app, vao_name='building_FIESPbody', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)

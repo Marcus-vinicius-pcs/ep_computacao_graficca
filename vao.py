@@ -1,7 +1,7 @@
 from vbo import VBO
 from shader_program import ShaderProgram
 
-
+# Código feito com base no tutorial do vídeo referenciado no relatório
 class VAO:
     def __init__(self, ctx):
         self.ctx = ctx

@@ -1,10 +1,14 @@
 import glm
 
+# Código feito com base no tutorial do vídeo referenciado no relatório
+
+# classe responsável pelo cálculo das intensidades das diferentes reflexões 
+# e tratamento de acordo com a posição da fonte de luz e do fragmento
 class Light:
     def __init__(self, position=(50, 50, -10), color=(1, 1, 1), direction=(0, 0, 0)):
         self.position = glm.vec3(position)
         self.color = glm.vec3(color)
-        self.direction = glm.vec3(direction)  # Adjust this to point to your avenue
+        self.direction = glm.vec3(direction)
         # intensities
         self.Ia = 0.06 * self.color  # ambient
         self.Id = 0.8 * self.color  # diffuse

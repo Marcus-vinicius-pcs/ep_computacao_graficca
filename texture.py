@@ -2,7 +2,7 @@ import pygame as pg
 import moderngl as mgl
 import glm
 
-
+# Código feito com base no tutorial do vídeo referenciado no relatório
 class Texture:
     def __init__(self, app):
         self.app = app

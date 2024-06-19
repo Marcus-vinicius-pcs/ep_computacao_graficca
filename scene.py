@@ -1,11 +1,15 @@
 from model import *
 import glm
 
+# Código feito com base no tutorial do vídeo referenciado no relatório
+
+# Classe para renderizar os opjetos na cena
 class Scene:
     def __init__(self, app):
         self.app = app
         self.objects = []
         self.load()
+
 
     def add_object(self, obj):
         self.objects.append(obj)

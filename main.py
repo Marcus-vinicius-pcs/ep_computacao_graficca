@@ -7,9 +7,8 @@ from camera import Camera
 from light import Light
 from mesh import Mesh
 from scene import Scene
-# from scene_renderer import SceneRenderer
 
-
+# Código feito com base no tutorial do vídeo referenciado no relatório
 class GraphicsEngine:
     """Controlador Principal"""
     def __init__(self, win_size=(800, 800)):
@@ -41,8 +40,6 @@ class GraphicsEngine:
         # # mesh
         self.mesh = Mesh(self)
         self.scene = Scene(self)
-        # # renderer
-        # self.scene_renderer = SceneRenderer(self)
 
     def check_events(self):
         for event in pg.event.get():

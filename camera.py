@@ -7,7 +7,7 @@ FAR = 100
 SPEED = 0.005
 SENSITIVITY = 0.04
 
-
+# Código feito com base no tutorial do vídeo referenciado no relatório
 class Camera:
     def __init__(self, app, position=(0, 0, 4), yaw=-90, pitch=0):
         self.app = app
@@ -24,14 +24,12 @@ class Camera:
         self.m_proj = self.get_projection_matrix()
 
     def rotate(self):
-        rel_x, rel_y = pg.mouse.get_rel()
-        # self.yaw += rel_x * SENSITIVITY
-        # self.pitch -= rel_y * SENSITIVITY
-        # self.pitch = max(-89, min(89, self.pitch))
+        # Posiciona a visão no centro da tela olhando de frente para a paisagem
         self.yaw = 91.63999999999989
         self.pitch = 1.4000000000000008
 
     def update_camera_vectors(self):
+        # Essa função atualiza os vetores da câmera na medida que há movimentação da visão
         yaw, pitch = glm.radians(self.yaw), glm.radians(self.pitch)
 
         self.forward.x = glm.cos(yaw) * glm.cos(pitch)
@@ -43,17 +41,14 @@ class Camera:
         self.up = glm.normalize(glm.cross(self.right, self.forward))
 
     def update(self):
-        #print(self.position)
         self.position = glm.vec3(4.16832, 1.08734, -8.22933)
-        print(self.pitch, self.yaw)
         self.move()
         self.rotate()
         self.update_camera_vectors()
         self.m_view = self.get_view_matrix()
 
     def move(self):
-        # velocity = SPEED * self.app.delta_time
-        # keys = pg.key.get_pressed()
+        # Habilita a movimentação da câmera
         velocity = SPEED * self.app.delta_time
         keys = pg.key.get_pressed()
         if keys[pg.K_w]:
@@ -70,7 +65,9 @@ class Camera:
             self.position += self.up * velocity
 
     def get_view_matrix(self):
+        # Retorna a matriz de visão
         return glm.lookAt(self.position, self.position + self.forward, self.up)
 
     def get_projection_matrix(self):
+        # Retorna a matriz de projeção
         return glm.perspective(glm.radians(FOV), self.aspect_ratio, NEAR, FAR)

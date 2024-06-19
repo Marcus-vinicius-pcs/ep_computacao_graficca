@@ -1,5 +1,5 @@
 
-
+# Código feito com base no tutorial do vídeo referenciado no relatório
 class ShaderProgram:
     def __init__(self, ctx):
         self.ctx = ctx

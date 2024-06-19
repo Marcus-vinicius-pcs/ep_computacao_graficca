@@ -1,7 +1,7 @@
 import numpy as np
 import moderngl as mgl
 
-
+# Código feito com base no tutorial do vídeo referenciado no relatório
 class VBO:
     def __init__(self, ctx):
         self.vbos = {}
@@ -48,9 +48,11 @@ class CubeVBO(BaseVBO):
         return np.array(data, dtype='f4')
 
     def get_vertex_data(self):
+        # coordenadas dos vértices do objeto
         vertices = [(-1, 0, -1), ( 1, 0,  -1), (1,  0.01,  -1), (-1, 0.01,  -1),
             (-1, 0.01, 1), (-1, 0, 1), (1, 0, 1), ( 1, 0.01, 1)]
 
+        # índices dos vértices que formam os objetos
         indices = [(0, 2, 3), (0, 1, 2),
                 (1, 7, 2), (1, 6, 7),
                 (6, 5, 4), (4, 7, 6),
@@ -59,6 +61,7 @@ class CubeVBO(BaseVBO):
                 (0, 6, 1), (0, 5, 6)]
         vertex_data = self.get_data(vertices, indices)
 
+        # coordenadas de textura
         tex_coord_vertices = [(0, 0), (1, 0), (1, 1), (0, 1)]
         tex_coord_indices = [(0, 2, 3), (0, 1, 2),
                              (0, 2, 3), (0, 1, 2),
@@ -68,6 +71,7 @@ class CubeVBO(BaseVBO):
                              (3, 1, 2), (3, 0, 1),]
         tex_coord_data = self.get_data(tex_coord_vertices, tex_coord_indices)
 
+        # normais
         normals = [( 0, 0, 1) * 6,
                    ( 1, 0, 0) * 6,
                    ( 0, 0,-1) * 6,
