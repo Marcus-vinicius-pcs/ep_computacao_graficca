@@ -88,8 +88,9 @@ class Scene:
         building_width = 20
         building_pos_x = n_horizontal * s + building_width / 2
 
-        add(ShoppingCenterRectangle(app, pos=(building_pos_x-6, building_pos_y-1, building_length+6), scale=(1, 1, 1), rot=(0, 270, 0)))
-
+        add(BuildingRectangle(app, pos=(building_pos_x-7, building_pos_y-0.5, building_length+6), scale=(1, 1, 1), rot=(0, 0, 0), tex_id=5))
+        add(BuildingRectangle(app, pos=(building_pos_x-7, building_pos_y-0.5, building_length+3), scale=(1, 1, 1), rot=(0, 0, 0), tex_id=4))
+        add(Building2Rectangle(app, pos=(building_pos_x-7, building_pos_y, 12+s), scale=(1, 1, 1), tex_id=6))
         # Add store
         building_height = 8
         building_pos_y = -s + 4
