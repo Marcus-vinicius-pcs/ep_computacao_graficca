@@ -190,7 +190,7 @@ class StoreRectangle(BaseModel):
         self.vao.release()
 
 
-# Classe para a criação do suposto prédio da FIESP
+# Classe para a criação do suposto prédio da FIESP kkk
 class BuildingFIESP(BaseModel):
     def __init__(self, app, vao_name='building_FIESP', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)
@@ -221,7 +221,7 @@ class BuildingFIESP(BaseModel):
         self.texture.release()
         self.vao.release()
 
-# Classe para a criação do "nariz" do suposto prédio da FIESP
+# Classe para a criação do "nariz" do suposto prédio da FIESP kk
 class BuildingFIESPbody(BaseModel):
     def __init__(self, app, vao_name='building_FIESPbody', tex_id=0, pos=(0,0,0), rot=(0,0,0), scale=(1,1,1)):
         super().__init__(app, vao_name, tex_id, pos, rot, scale)

@@ -24,6 +24,11 @@ class Camera:
         self.m_proj = self.get_projection_matrix()
 
     def rotate(self):
+        # Para habilitar rotação só descomentar o código abaixo
+        # rel_x, rel_y = pg.mouse.get_rel()
+        # self.yaw += rel_x * SENSITIVITY
+        # self.pitch -= rel_y * SENSITIVITY
+        # self.pitch = max(-89, min(89, self.pitch))
         # Posiciona a visão no centro da tela olhando de frente para a paisagem
         self.yaw = 91.63999999999989
         self.pitch = 1.4000000000000008
@@ -41,6 +46,7 @@ class Camera:
         self.up = glm.normalize(glm.cross(self.right, self.forward))
 
     def update(self):
+        # para habilitar movimentação com AWSD só comentar a linha 50 em que fixamos a posição da câmera
         self.position = glm.vec3(4.16832, 1.08734, -8.22933)
         self.move()
         self.rotate()
